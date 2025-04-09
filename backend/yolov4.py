@@ -22,8 +22,10 @@ def detect_cars(video_file):
     net = cv.dnn.readNet('yolov4-tiny.weights', 'yolov4-tiny.cfg')
 
     # Set preferable backend and target
-    net.setPreferableBackend(cv.dnn.DNN_BACKEND_CUDA)
-    net.setPreferableTarget(cv.dnn.DNN_TARGET_CUDA_FP16)
+   # Set preferable backend and target
+    net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
+    net.setPreferableTarget(cv.dnn.DNN_TARGET_CPU)
+
 
     # Initialize the detection model
     model = cv.dnn_DetectionModel(net)
